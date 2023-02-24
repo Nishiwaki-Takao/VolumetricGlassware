@@ -1,7 +1,8 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id":
-    "$comment": "2020/05/22 @HirMtsd",
-    "title": "Country_list.json schema",
-    "description": "Country list (JIS X 0304 / ISO 3166-1) json schema",
+    "$id":"https://github.com/Nishiwaki-Takao/VolumetricGlassware/blob/master/VolumetricGlassware/VolumeticPipette/VolumetricPipette_shema.json",
+    "$comment": "2023/02/24 @Takao-Nishiwaki",
+    "title": "VolumetricPipette.json schema",
+    "description": " Volumetic Pipette list (JIS R 3505 / ISO 1769) json schema",
     "type": "object",
+    "properties": {}
