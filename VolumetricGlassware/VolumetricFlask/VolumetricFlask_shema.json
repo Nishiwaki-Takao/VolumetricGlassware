@@ -34,7 +34,33 @@
             "description": "メスフラスコの出受の定義",
             "type": "string",
             "enum" :  ["TD","TC"]
-          }
+          },
+           "Neck": {
+            "description": "メスフラスコの目盛線部分の形状に関する情報",
+            "type": "object",
+            "properties": {
+              "NarrowWide": {
+                "type": "string",
+                "description": "メスフラスコの目盛線部分の太いか細いか",
+                "enum": [ "Narrow", "Wide"]
+              },
+              "dscoreMax": {
+                "type": "integer",
+                "description": "メスフラスコの目盛線部分の最大内径"
+              },
+                },
+              "if": {
+                "properties": { "NarrowWide": { "const": "Wide" } }
+              },
+            "then": {
+              "properties": {
+                "dscoreMin": {
+                "type": "integer",
+                "description": "メスフラスコの目盛線部分の最小内径"
+                },
+                "else": {}
+              }
+            }
         }
       }
     }
