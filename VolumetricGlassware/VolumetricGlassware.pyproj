@@ -21,7 +21,21 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Common\Enums.py" />
+    <Compile Include="Common\AbstractGlassware.py" />
+    <Compile Include="VolumetricPipette\VolumetricPippete.py" />
     <Compile Include="VolumetricGlassware.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="VolumetricFlask\" />
+    <Folder Include="VolumetricPipette\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="VolumetricFlask\VolumetricFlask_shema.json" />
+    <Content Include="VolumetricFlask\VolumetricFlask.json" />
+    <Content Include="VolumetricPipette\VolumetricPipette_shema.json" />
+    <Content Include="VolumetricPipette\VolumetricPippete.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

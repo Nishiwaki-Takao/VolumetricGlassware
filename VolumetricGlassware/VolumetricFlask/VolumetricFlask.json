@@ -1,0 +1,28 @@
+{」
+  "VolumetricFlask": [
+    { "NominalCapacity": 5, "CapacityTolerance": 0.025, "Class": "A", "Calibration": "TC"},
+    { "NominalCapacity": 5, "CapacityTolerance": 0.05, "Class": "B", "Calibration": "TC" },
+    { "NominalCapacity": 5, "CapacityTolerance": 0.05, "Class": "A", "Calibration": "TD"},
+    { "NominalCapacity": 5, "CapacityTolerance": 0.1, "Class": "B", "Calibration": "TD" },
+    { "NominalCapacity": 10, "CapacityTolerance": 0.025, "Class": "A", "Calibration": "TC"},
+    { "NominalCapacity": 10, "CapacityTolerance": 0.05, "Class": "B", "Calibration": "TC" },
+    { "NominalCapacity": 10, "CapacityTolerance": 0.05, "Class": "A", "Calibration": "TD"},
+    { "NominalCapacity": 10, "CapacityTolerance": 0.1, "Class": "B", "Calibration": "TD" },
+    { "NominalCapacity": 20, "CapacityTolerance": 0.04, "Class": "A", "Calibration": "TC"},
+    { "NominalCapacity": 20, "CapacityTolerance": 0.08, "Class": "B", "Calibration": "TC" },
+    { "NominalCapacity": 20, "CapacityTolerance": 0.08, "Class": "A", "Calibration": "TD"},
+    { "NominalCapacity": 20, "CapacityTolerance": 0.16, "Class": "B", "Calibration": "TD" },
+    { "NominalCapacity": 25, "CapacityTolerance": 0.04, "Class": "A", "Calibration": "TC"},
+    { "NominalCapacity": 25, "CapacityTolerance": 0.08, "Class": "B", "Calibration": "TC" },
+    { "NominalCapacity": 25, "CapacityTolerance": 0.08, "Class": "A", "Calibration": "TD"},
+    { "NominalCapacity": 25, "CapacityTolerance": 0.16, "Class": "B", "Calibration": "TD" },
+    { "NominalCapacity": 50, "CapacityTolerance": 0.06, "Class": "A", "Calibration": "TC"},
+    { "NominalCapacity": 50, "CapacityTolerance": 0.12, "Class": "B", "Calibration": "TC" },
+    { "NominalCapacity": 50, "CapacityTolerance": 0.12, "Class": "A", "Calibration": "TD"},
+    { "NominalCapacity": 50, "CapacityTolerance": 0.24, "Class": "B", "Calibration": "TD" },
+    { "NominalCapacity": 100, "CapacityTolerance": 0.1, "Class": "A", "Calibration": "TC"},
+    { "NominalCapacity": 100, "CapacityTolerance": 0.2, "Class": "B", "Calibration": "TC" },
+    { "NominalCapacity": 100, "CapacityTolerance": 0.2, "Class": "A", "Calibration": "TD"},
+    { "NominalCapacity": 100, "CapacityTolerance": 0.4, "Class": "B", "Calibration": "TD" },
+  ]
+}
