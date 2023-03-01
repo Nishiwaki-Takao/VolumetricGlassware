@@ -2,9 +2,12 @@ from enum import Enum,StrEnum, auto
 
 
 class Calibration(Enum):
+	ó—p = -3
+	TC =-2
 	In = -1
 	Ex = 1
-
+	TD = 2
+	o—p = 3
 class ToleranceClass(StrEnum):
 	A = auto()
 	B = auto()

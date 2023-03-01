@@ -5,12 +5,13 @@
     <ProjectGuid>e11316e8-1e83-45cc-853b-e0ead5fef69e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>VolumetricGlassware.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>..\VolumetricGlassware</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>VolumetricGlassware</Name>
     <RootNamespace>VolumetricGlassware</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <InterpreterId>Global|PythonCore|3.7</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,6 +24,7 @@
   <ItemGroup>
     <Compile Include="Common\Enums.py" />
     <Compile Include="Common\AbstractGlassware.py" />
+    <Compile Include="VolumetricFlask\VolumetricFlask_schema.py" />
     <Compile Include="VolumetricPipette\VolumetricPippete.py" />
     <Compile Include="VolumetricGlassware.py" />
   </ItemGroup>
@@ -32,10 +34,13 @@
     <Folder Include="VolumetricPipette\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="VolumetricFlask\VolumetricFlask_shema.json" />
+    <Content Include="VolumetricFlask\VolumetricFlask_schema.json" />
     <Content Include="VolumetricFlask\VolumetricFlask.json" />
-    <Content Include="VolumetricPipette\VolumetricPipette_shema.json" />
-    <Content Include="VolumetricPipette\VolumetricPippete.json" />
+    <Content Include="VolumetricPipette\VolumetricPipette_schema.json" />
+    <Content Include="VolumetricPipette\VolumetricPipette.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.7" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
