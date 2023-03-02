@@ -1,8 +1,7 @@
 import json
-from quantities import 
 from jsonschema import validate, ValidationError, FormatChecker
 
-def Validator(target: str):
+def _Validator(target: str):
     print(target + ' CHECK BEGIN')
     with open(target + '/' + target +  '_schema.json', encoding="utf-8") as file_schema:
         json_schema = json.load(file_schema)
@@ -16,7 +15,10 @@ def Validator(target: str):
     print(target + ' CHECK END')
 
 if __name__ == '__main__' :
-    Validator("VolumetricFlask")
-    Validator("VolumetricPipette")
+    _Validator("VolumetricFlask")
+    _Validator("VolumetricPipette")
+    _Validator("GraduatedPipette")
+    _Validator("MeasuringCylinder")
+    _Validator("Burette")
 
 

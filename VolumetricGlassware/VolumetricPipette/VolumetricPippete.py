@@ -1,4 +1,7 @@
-from uncertainties import ufloat
+from Common.AbstractGlassware import  VolumetricGlassWare
+
+class VlumetricPipette(VolumetricGlassWare):
+
 
 
 

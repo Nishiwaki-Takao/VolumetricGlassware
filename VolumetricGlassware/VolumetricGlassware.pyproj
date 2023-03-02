@@ -24,18 +24,28 @@
   <ItemGroup>
     <Compile Include="Common\Enums.py" />
     <Compile Include="Common\AbstractGlassware.py" />
-    <Compile Include="VolumetricFlask\VolumetricFlask_schema.py" />
+    <Compile Include="Burette\Burette.py" />
+    <Compile Include="GraduatedPipette\GraduatedPippete.py" />
     <Compile Include="VolumetricPipette\VolumetricPippete.py" />
     <Compile Include="VolumetricGlassware.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
+    <Folder Include="Burette\" />
+    <Folder Include="MeasuringCylinder\" />
     <Folder Include="VolumetricFlask\" />
+    <Folder Include="GraduatedPipette\" />
     <Folder Include="VolumetricPipette\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Burette\Burette.json" />
+    <Content Include="Burette\Burette_schema.json" />
+    <Content Include="MeasuringCylinder\MeasuringCylinder.json" />
+    <Content Include="MeasuringCylinder\MeasuringCylinder_schema.json" />
     <Content Include="VolumetricFlask\VolumetricFlask_schema.json" />
     <Content Include="VolumetricFlask\VolumetricFlask.json" />
+    <Content Include="GraduatedPipette\GraduatedPipette.json" />
+    <Content Include="GraduatedPipette\GraduatedPipette_schema.json" />
     <Content Include="VolumetricPipette\VolumetricPipette_schema.json" />
     <Content Include="VolumetricPipette\VolumetricPipette.json" />
   </ItemGroup>

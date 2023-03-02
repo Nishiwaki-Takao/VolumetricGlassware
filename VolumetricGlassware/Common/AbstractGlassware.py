@@ -1,8 +1,7 @@
 
 from math import sqrt
-from quontities  catch_warnings
-from uncertainties import ufloat
-from abc import ABC
+from quantities import uncertainquantity,mL
+from abc import ABC, abstractclassmethod
 from Enums import Calibration, ToleranceClass
 
 
@@ -16,8 +15,12 @@ class VolumetricGlassWare(ABC):
         self.Tolerance = Tolerance
         self.Class = ToleranceClass[Class]
         self._Calibration = Calibration[Calibration]
+    
+    @abstractclassmethod
+    def __repr__(self) -> str:
+        pass
 
-    def TDTCcheck(self) -> int:
+    def _TDTCcheck(self) -> int:
         if self._Calibration in (Calibration.TD,Calibration.Ex,Calibration.Žó—p):
             return 1
         elif self._Calibration in (Calibration.TC,Calibration.In,Calibration.o—p):
@@ -25,14 +28,16 @@ class VolumetricGlassWare(ABC):
         else:
             return 0 
 
-    def value(self) -> ufloat:
-        return ufloat(self.Capacity,self.Tolerance / sqrt(3))
+    def value(self) -> uncertainquantity:
+        return uncertainquantity(self.Capacity, mL, self.Tolerance / sqrt(3))
 
-    def _usage(self)-> ufloat:
+    def _use(self)-> uncertainquantity:
         return self.value ** self.TDTCcheck() 
 
     def Caribrationfor(self) -> str:
         return str(self._Calibration.name)
+
+class GraduatedGlassware(VolumetricGlassWare):
 
 
 
