@@ -33,6 +33,7 @@
     <Folder Include="Common\" />
     <Folder Include="Burette\" />
     <Folder Include="MeasuringCylinder\" />
+    <Folder Include="Butyrometer\" />
     <Folder Include="VolumetricFlask\" />
     <Folder Include="GraduatedPipette\" />
     <Folder Include="VolumetricPipette\" />
@@ -42,6 +43,8 @@
     <Content Include="Burette\Burette_schema.json" />
     <Content Include="MeasuringCylinder\MeasuringCylinder.json" />
     <Content Include="MeasuringCylinder\MeasuringCylinder_schema.json" />
+    <Content Include="Butyrometer\Butyrometer.json" />
+    <Content Include="Butyrometer\Butyrometer_schema.json" />
     <Content Include="VolumetricFlask\VolumetricFlask_schema.json" />
     <Content Include="VolumetricFlask\VolumetricFlask.json" />
     <Content Include="GraduatedPipette\GraduatedPipette.json" />
