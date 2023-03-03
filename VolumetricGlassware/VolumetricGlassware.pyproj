@@ -45,6 +45,7 @@
     <Content Include="MeasuringCylinder\MeasuringCylinder_schema.json" />
     <Content Include="Butyrometer\Butyrometer.json" />
     <Content Include="Butyrometer\Butyrometer_schema.json" />
+    <Content Include="readme.md" />
     <Content Include="VolumetricFlask\VolumetricFlask_schema.json" />
     <Content Include="VolumetricFlask\VolumetricFlask.json" />
     <Content Include="GraduatedPipette\GraduatedPipette.json" />
