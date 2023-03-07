@@ -50,6 +50,7 @@
     <Content Include="VolumetricFlask\VolumetricFlask.json" />
     <Content Include="GraduatedPipette\GraduatedPipette.json" />
     <Content Include="GraduatedPipette\GraduatedPipette_schema.json" />
+    <Content Include="VolumetricPipette\sample.cs" />
     <Content Include="VolumetricPipette\VolumetricPipette_schema.json" />
     <Content Include="VolumetricPipette\VolumetricPipette.json" />
   </ItemGroup>

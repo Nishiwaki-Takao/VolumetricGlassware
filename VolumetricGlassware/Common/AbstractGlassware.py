@@ -1,4 +1,5 @@
-
+from asyncio.windows_events import NULL
+from operator import mul, truediv
 from math import sqrt
 from quantities import uncertainquantity,mL
 from abc import ABC, abstractclassmethod
@@ -10,34 +11,35 @@ class VolumetricGlassWare(ABC):
                  Capacity: float,
                  Tolerance: float,
                  Class: str,
-                 Calibration: str):
+                 NewCalibration: str):
         self.Capacity = Capacity
         self.Tolerance = Tolerance
         self.Class = ToleranceClass[Class]
-        self._Calibration = Calibration[Calibration]
+        self.Calibration = Calibration[NewCalibration]
     
     @abstractclassmethod
     def __repr__(self) -> str:
         pass
 
-    def _TDTCcheck(self) -> int:
-        if self._Calibration in (Calibration.TD,Calibration.Ex,Calibration.受用):
-            return 1
-        elif self._Calibration in (Calibration.TC,Calibration.In,Calibration.出用):
-            return -1
+    def _TDTCcheck(self) -> function:
+        if self.Calibration in (Calibration.TD,Calibration.Ex,Calibration.受用):
+            return mul
+        elif self.Calibration in (Calibration.TC,Calibration.In,Calibration.出用):
+            return truediv
         else:
-            return 0 
+            return None
 
     def value(self) -> uncertainquantity:
         return uncertainquantity(self.Capacity, mL, self.Tolerance / sqrt(3))
 
-    def _use(self)-> uncertainquantity:
-        return self.value ** self.TDTCcheck() 
+    def _use(self)-> tuple:
+        return (self.TDTCcheck(), self.value)
+
 
     def Caribrationfor(self) -> str:
-        return str(self._Calibration.name)
+        return str(self.Calibration.name)
 
-class GraduatedGlassware(VolumetricGlassWare):
+#class GraduatedGlassware(VolumetricGlassWare):
 
 
 

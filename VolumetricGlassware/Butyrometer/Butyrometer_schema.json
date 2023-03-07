@@ -14,27 +14,44 @@
         "type": "object",
         "properties": {
           "NominalCapacity": {
-            "description": "乳脂計の容量",
+            "description": "乳脂計の容量あるいは目盛部の容量",
             "type": "number",
-            "enum": [5, 10, 20, 25, 50, 100, 200, 250, 300, 500, 1000, 2000, 2500, 3000, 5000, 10000 ]
+            "enum": [ 0.625, 0.750, 0.875, 1.000, 1.125, 1.6, 5.0 ]
+          },
+          "BodyCapacity": {
+            "description": "乳脂計胴部の容量、その最大値と最小値",
+            "type": "object",
+            "properties": {
+              "Max": {
+                "type": "integer",
+                "description": "乳脂計胴部の最大容量",
+                "enum": [ 22, 50]
+              },
+              "Min": {
+                "type": "integer",
+                "description": "乳脂計胴部の最小容量",
+                "enum": [ 21, 45]
+              }
+            }
+          },
+          "Subdivision": {
+            "description": "乳脂計の目盛",
+            "type": "number",
+            "enum": [ 0.0125, 0.02, 0.05 ]
           },
           "CapacityTolerance": {
             "description": "乳脂計の許容誤差",
             "type": "number",
-            "minimum": 0.025,
-            "maximum": 10,
-            "anyOf": [ { "multipleOf": 0.025 }, { "multipleOf": 0.02 }, { "multipleOf": 0.04 }, { "multipleOf": 0.05 }, { "multipleOf": 0.06 }, { "multipleOf": 0.08 }, { "multipleOf": 0.1 }, { "multipleOf": 0.12 }, { "multipleOf": 0.15 }, { "multipleOf": 0.2 }, { "multipleOf": 0.25 }, { "multipleOf": 0.3 }, { "multipleOf": 0.4 }, { "multipleOf": 0.6 }, { "multipleOf": 1.5 }, { "multipleOf": 2.0 }, { "multipleOf": 2.0 }, { "multipleOf": 5.0 } ]
-            },
-          "Class": {
-            "description": "乳脂計の等級",
+            "enum": [0.0125, 0.02, 0.05]
+          },
+          "Type": {
+            "description": "乳脂計の形式",
             "type": "string",
-            "enum": [ "A", "B", "SuperGrade", "HighGrade" ]
+            "enum": [ "Gerber", "Babcock" ]
           }
-           }
-          }
-         }
         }
       }
     }
   }
 }
+
