@@ -22,37 +22,38 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Common\Enums.py" />
-    <Compile Include="Common\AbstractGlassware.py" />
-    <Compile Include="Burette\Burette.py" />
-    <Compile Include="GraduatedPipette\GraduatedPippete.py" />
-    <Compile Include="VolumetricPipette\VolumetricPippete.py" />
+    <Compile Include="VolumetricGlassware\Common\Enums.py" />
+    <Compile Include="VolumetricGlassware\Common\AbstractGlassware.py" />
+    <Compile Include="VolumetricGlassware\Burette\Burette.py" />
+    <Compile Include="VolumetricGlassware\GraduatedPipette\GraduatedPippete.py" />
+    <Compile Include="VolumetricGlassware\VolumetricPipette\VolumetricPipette.py" />
     <Compile Include="VolumetricGlassware.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Burette\" />
-    <Folder Include="MeasuringCylinder\" />
-    <Folder Include="Butyrometer\" />
-    <Folder Include="VolumetricFlask\" />
-    <Folder Include="GraduatedPipette\" />
-    <Folder Include="VolumetricPipette\" />
+    <Folder Include="VolumetricGlassware\Common\" />
+    <Folder Include="VolumetricGlassware\Burette\" />
+    <Folder Include="VolumetricGlassware\MeasuringCylinder\" />
+    <Folder Include="VolumetricGlassware\Butyrometer\" />
+    <Folder Include="VolumetricGlassware\" />
+    <Folder Include="VolumetricGlassware\VolumetricFlask\" />
+    <Folder Include="VolumetricGlassware\GraduatedPipette\" />
+    <Folder Include="VolumetricGlassware\VolumetricPipette\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Burette\Burette.json" />
-    <Content Include="Burette\Burette_schema.json" />
-    <Content Include="MeasuringCylinder\MeasuringCylinder.json" />
-    <Content Include="MeasuringCylinder\MeasuringCylinder_schema.json" />
-    <Content Include="Butyrometer\Butyrometer.json" />
-    <Content Include="Butyrometer\Butyrometer_schema.json" />
+    <Content Include="VolumetricGlassware\Burette\Burette.json" />
+    <Content Include="VolumetricGlassware\Burette\Burette_schema.json" />
+    <Content Include="VolumetricGlassware\MeasuringCylinder\MeasuringCylinder.json" />
+    <Content Include="VolumetricGlassware\MeasuringCylinder\MeasuringCylinder_schema.json" />
+    <Content Include="VolumetricGlassware\Butyrometer\Butyrometer.json" />
+    <Content Include="VolumetricGlassware\Butyrometer\Butyrometer_schema.json" />
     <Content Include="readme.md" />
-    <Content Include="VolumetricFlask\VolumetricFlask_schema.json" />
-    <Content Include="VolumetricFlask\VolumetricFlask.json" />
-    <Content Include="GraduatedPipette\GraduatedPipette.json" />
-    <Content Include="GraduatedPipette\GraduatedPipette_schema.json" />
-    <Content Include="VolumetricPipette\sample.cs" />
-    <Content Include="VolumetricPipette\VolumetricPipette_schema.json" />
-    <Content Include="VolumetricPipette\VolumetricPipette.json" />
+    <Content Include="VolumetricGlassware\VolumetricFlask\VolumetricFlask_schema.json" />
+    <Content Include="VolumetricGlassware\VolumetricFlask\VolumetricFlask.json" />
+    <Content Include="VolumetricGlassware\GraduatedPipette\GraduatedPipette.json" />
+    <Content Include="VolumetricGlassware\GraduatedPipette\GraduatedPipette_schema.json" />
+    <Content Include="VolumetricGlassware\VolumetricPipette\sample.cs" />
+    <Content Include="VolumetricGlassware\VolumetricPipette\VolumetricPipette_schema.json" />
+    <Content Include="VolumetricGlassware\VolumetricPipette\VolumetricPipette.json" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.7" />

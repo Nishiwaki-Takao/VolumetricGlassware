@@ -3,11 +3,12 @@ from enum import Enum,StrEnum, auto
 
 class Calibration(Enum):
 	éÛóp = -3
-	TC =-2
+	TC = -2
 	In = -1
 	Ex = 1
 	TD = 2
 	èoóp = 3
+
 class ToleranceClass(StrEnum):
 	A = auto()
 	B = auto()
@@ -22,3 +23,6 @@ class Color(StrEnum):
 	Yellow = auto()
 	Orange = auto()
 	Black = auto()
+
+
+if 
