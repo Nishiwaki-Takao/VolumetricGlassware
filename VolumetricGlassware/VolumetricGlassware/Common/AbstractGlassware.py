@@ -1,9 +1,11 @@
 from asyncio.windows_events import NULL
 from operator import mul, truediv
 from math import sqrt
-from quantities import uncertainquantity,mL
+import quantities as pq
 from abc import ABC, abstractclassmethod
 from Enums import Calibration, ToleranceClass
+from Typing import Union
+
 
 
 class VolumetricGlassWare(ABC):
@@ -29,8 +31,11 @@ class VolumetricGlassWare(ABC):
         else:
             return None
 
-    def value(self) -> uncertainquantity:
-        return uncertainquantity(self.Capacity, mL, self.Tolerance / sqrt(3))
+    def value(self,WithUncertain = True) -> Union(pq.Quantity,pq.UncertainQuantity):
+        if WithUncertain == True:
+            return pq.UncertainQuantity(self.Capacity, pq.mL, self.Tolerance / sqrt(3))
+        else:
+            return pq.Quantity(self.Capacity,pq.mL)
 
     def _use(self)-> tuple:
         return (self.TDTCcheck(), self.value)
