@@ -3,8 +3,8 @@ from ..Common.Enums import Color
 
 
 class VolumetricPipette(VolumetricGlassWare):
-    def __init__(self, Capacity: float, Tolerance: float, Class: str, NewCalibration: str, ColorCode: dict):
-        super().__init__(Capacity, Tolerance, Class, NewCalibration)
+    def __init__(self, capacity: float, Tolerance: float, Class: str, NewCalibration: str, ColorCode: dict):
+        super().__init__(capacity, Tolerance, Class, NewCalibration)
         self.color = Color(ColorCode['Color'])
         self.NomRing= ColorCode['NumberOfRing']
 
