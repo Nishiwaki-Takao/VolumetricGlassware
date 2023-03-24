@@ -8,9 +8,9 @@ class SingleMarked(VolumetricGlassware):
     def __init__(self,
                  capacity: float,
                  tolerance: float,
-                 new_class: str,
+                 new_grade: str,
                  new_calibration: str):
-        super().__init__(capacity, tolerance, new_class, new_calibration)
+        super().__init__(capacity, tolerance, new_grade, new_calibration)
 
-    def _unc_qnt(self):
+    def unc_qnt(self) -> pq.UncertainQuantity:
         return pq.uncertainquantity(self.Capacity, pq.mL, self.uncertainty)

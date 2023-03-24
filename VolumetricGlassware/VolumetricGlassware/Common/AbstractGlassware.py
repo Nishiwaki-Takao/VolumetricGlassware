@@ -3,7 +3,6 @@ import quantities as pq
 from abc import ABC, abstractmethod
 from Enums import Calibration, ToleranceClass
 from typing import Union
-
     
 class VolumetricGlassware(ABC):
     @abstractmethod
@@ -48,30 +47,40 @@ class VolumetricGlassware(ABC):
     @abstractmethod
     def __add__(self, other) -> pq.UncertainQuantity:
         pass
-
+    @abstractmethod
+    def __iadd__(self, other) -> pq.UncertainQuantity:
+        pass
     @abstractmethod
     def __sub__(self, other) -> pq.UncertainQuantity:
         pass
-
     @abstractmethod
-    def __mul__(self, other) -> Union[pq.UncertainQuantity, None]:
+    def __isub__(self, other) -> pq.UncertainQuantity:
+        pass
+    @abstractmethod
+    def __mul__(self, other) -> pq.UncertainQuantity:
+        pass
+    @abstractmethod
+    def __imul__(self, other) -> pq.UncertainQuantity:
         pass
 
     def __floordiv__(self, other) -> None:
         raise SyntaxError('Volumetric Glassware library is to discuss uncertainty. No Turn for floor division.')
 
+    def __ifloordiv__(self, other) -> None:
+        raise SyntaxError('Volumetric Glassware library is to discuss uncertainty. No Turn for floor division.')
     @abstractmethod
-    def __truediv__(self, other) -> Union[pq.UncertainQuantity, None]:
+    def __truediv__(self, other) -> pq.UncertainQuantity:
         pass
-
     @abstractmethod
     def __mod__(self, other) -> pq.UncertainQuantity:
         pass
 
     @abstractmethod
+    def __imod__(self, other) -> pq.UncertainQuantity:
+        pass
+    @abstractmethod
     def __pow__(self, other) -> pq.UncertainQuantity:
         pass
-
 
 '''class GraduatedGlassware(VolumetricGlassWare):
     def __init__(self, Capacity: float, Tolerance: float, Class: str, NewCalibration: str,subdivision: float):
