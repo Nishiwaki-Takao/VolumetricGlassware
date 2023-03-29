@@ -1,14 +1,16 @@
 import quantities as pq
 from ..Common.SingleMarked import SingleMarked
+from ..Common.ToDeliver import ToDeliver
 from ..Common.Enums import Color
 import json
 
-class VolumetricPipette(SingleMarked):
 
-    def __init__(self, capacity: float, tolerance: float, grade: str, calibration: str, color_code: dict):
+class VolumetricPipette(SingleMarked, ToDeliver):
+
+    def __init__(self, capacity: float, tolerance: float, grade: str, calibration: str, color: str, number_of_ring: int):
         super().__init__(capacity, tolerance, grade, calibration)
-        self.color = Color(color_code['color'])
-        self.NomRing = color_code['number_of_ring']
+        self.color = Color[color]
+        self.NomRing = number_of_ring
 
     def __repr__(self) -> str:
         s = super().__repr__()
@@ -55,19 +57,6 @@ class VolumetricPipette(SingleMarked):
 
     def __pow__(self, other) -> pq.UncertainQuantity:
         return self.unc_qnt().__pow__(other)
-
-
-class VolumetricPipettes:
-    def __init__(self):
-        with open("VolumetricPipette.json", 'r') as vol_pip_json:
-            vol_pipette_json = json.load(vol_pip_json)
-            for json_row in vol_pipette_json['VolumetricPipette']:
-                vol_pipette = VolumetricPipette(**json_row)
-                attrname = json_row['grade']+str(json_row['capacity']).replace('.', '') + 'ml'
-                self.__setattr__(attrname, vol_pipette)
-            
-
-
 
 
 

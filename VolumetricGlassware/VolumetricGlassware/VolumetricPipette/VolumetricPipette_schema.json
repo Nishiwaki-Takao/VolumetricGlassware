@@ -7,7 +7,7 @@
   "type": "object",
   "properties": {
     "VolumetricPipette": {
-      "description": "VolumetricPippet",
+      "description": "VolumetricPipette",
       "type": "array",
       "uniquness": true,
       "items": {
@@ -30,7 +30,7 @@
             "type": "string",
             "enum": [ "A", "B", "SuperGrade", "HighGrade" ]
           },
-          "Calibration": {
+          "calibration": {
             "description": "ホールピペットの出受の定義",
             "type": "string",
             "enum" :  ["TD"]

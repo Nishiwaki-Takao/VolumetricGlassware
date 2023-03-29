@@ -1,5 +1,6 @@
 import json
 from jsonschema import validate, ValidationError, FormatChecker
+from VolumetricPipette import Volu
 
 def _Validator(target: str):
     print(target + ' CHECK BEGIN')
