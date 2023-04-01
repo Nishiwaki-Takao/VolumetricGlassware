@@ -1,1 +1,5 @@
-from VolumetricPipette import VolumetricPippettes
+from VolumetricPipette.VolumetricPipettes import VolumetricPipettes
+from VolumetricPipette.VolumetricPipette import VolumetricPipette
+
+from VolumetricFlask.VolumetricFlasks import VolumetricFlasks
+from VolumetricFlask.VolumetricFlask import VolumetricFlask, VolumetricFlaskWideNeck

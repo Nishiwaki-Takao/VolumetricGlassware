@@ -487,4 +487,3 @@ class VolumetricPipettes:
                                  calibration="TD",
                                  color="Blue",
                                  number_of_ring=1)
-    

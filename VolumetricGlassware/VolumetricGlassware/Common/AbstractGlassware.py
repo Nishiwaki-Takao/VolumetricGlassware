@@ -4,7 +4,8 @@ from abc import ABC, abstractmethod
 from Enums import Calibration, ToleranceClass
 import warnings
 from typing import Union
-    
+
+
 class VolumetricGlassware(ABC):
     @abstractmethod
     def __init__(self,
@@ -19,7 +20,7 @@ class VolumetricGlassware(ABC):
 
     @property
     def capacity(self) -> float:
-        return  self.Capacity
+        return self.Capacity
 
     @property
     def tolerance(self) -> float:
@@ -27,7 +28,7 @@ class VolumetricGlassware(ABC):
 
     @property
     def uncertainty(self) -> float:
-        return  self.Tolerance/sqrt(6)
+        return self.Tolerance/sqrt(6)
 
     @property
     def grade(self) -> str:
@@ -72,7 +73,7 @@ class VolumetricGlassware(ABC):
         pass
 
     @abstractmethod
-    def __rmul__(self, other) -> pq.UncertainQuantity:
+    def __rmul__(self, other) -> Union[None, pq.UncertainQuantity]:
         pass
 
     def __floordiv__(self, other) -> None:
@@ -85,8 +86,9 @@ class VolumetricGlassware(ABC):
     @abstractmethod
     def __truediv__(self, other) -> pq.UncertainQuantity:
         pass
-
-
+    @abstractmethod
+    def __rtruediv__(self, other) -> Union[None, pq.UncertainQuantity]:
+        pass
     @abstractmethod
     def __mod__(self, other) -> pq.UncertainQuantity:
         pass
