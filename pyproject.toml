@@ -1,0 +1,20 @@
+[project]
+name = "VolumetricGlassware"
+version = "0.0.1"
+authors = [
+  { name="Nishiwaki Takao", email="author@example.com" },
+]
+description = """Do you have some annoyances to calculate uncertainty?
+if so this project may help you.
+This project is going to be representation of glasswares in Python."""
+readme = "readme.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+ [project.urls]
+"Homepage" = "https://github.com/Nishiwaki-Takao/VolumetricGlassware"
+"Bug Tracker" = "https://github.com/Nishiwaki-Takao/VolumetricGlassware/issues"

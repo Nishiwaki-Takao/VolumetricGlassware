@@ -1,6 +1,5 @@
 from VolumetricPipette import VolumetricPipette
 
-
 class VolumetricPipettes:
     @staticmethod
     def classA01ml() -> VolumetricPipette:

@@ -2,10 +2,10 @@ from typing import Union
 
 import quantities as pq
 from ..Common.SingleMarked import SingleMarked
-from ..Common.ToContain import ToContain
+from ..Common.ToContainSolution import ToContainSolution
 
 
-class VolumetricFlask(SingleMarked, ToContain):
+class VolumetricFlask(SingleMarked):
 
     def __init__(self, capacity: float, tolerance: float, grade: str, dscore_max: int):
         super().__init__(capacity, tolerance, grade, "TC")
@@ -20,8 +20,8 @@ class VolumetricFlask(SingleMarked, ToContain):
     def dscore_max(self) -> int:
         return self.Dscore_Max
 
-    def __unc_qnt(self) -> pq.UncertainQuantity:
-        return pq.uncertainquantity(self.Capacity, pq.mL, self.uncertainty*2)
+    def __unc_qnt(self) -> ToContainSolution:
+        return ToContainSolution(self.capacity, pq.mL, self.uncertainty*2)
 
     def __repr__(self) -> str:
         s = super().__repr__()
@@ -51,28 +51,28 @@ class VolumetricFlask(SingleMarked, ToContain):
         return self.__unc_qnt().__rsub__(other)
 
     def __mul__(self, other) -> pq.UncertainQuantity:
-        return self.unc_qnt().__mul__(other)
+        return self.__unc_qnt().__mul__(other)
 
     def __imul__(self, other) -> pq.UncertainQuantity:
-        return self.unc_qnt().__imul__(other)
+        return self.__unc_qnt().__imul__(other)
 
     def __rmul__(self, other) -> Union[None, pq.UncertainQuantity]:
-        return ToContain.__rmul__(other)
+        return ToContainSolution.__rmul__(other)
 
     def __truediv__(self, other) -> pq.UncertainQuantity:
-        return self.unc_qnt().__truediv__(other)
+        return self.__unc_qnt().__truediv__(other)
 
     def __rtruediv__(self, other) -> Union[None, pq.UncertainQuantity]:
-        return self.unc_qnt().__rtruediv__(other)
+        return self.__unc_qnt().__rtruediv__(other)
 
     def __mod__(self, other) -> pq.UncertainQuantity:
-        return self.unc_qnt().__mod__(other)
+        return self.__unc_qnt().__mod__(other)
 
     def __imod__(self, other) -> pq.UncertainQuantity:
-        return self.unc_qnt().__imod__(other)
+        return self.__unc_qnt().__imod__(other)
 
     def __pow__(self, other) -> pq.UncertainQuantity:
-        return self.unc_qnt().__pow__(other)
+        return self.__unc_qnt().__pow__(other)
 
 
 class VolumetricFlaskWideNeck(VolumetricFlask):

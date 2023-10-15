@@ -171,14 +171,14 @@ class VolumetricFlasks:
                                dscore_max=30)
 
     @staticmethod
-    def createClassA2_5L() -> VolumetricFlask:
+    def createClassA2dot5L() -> VolumetricFlask:
         return VolumetricFlask(capacity=2500,
                                tolerance=1.5,
                                grade="A",
                                dscore_max=34)
 
     @staticmethod
-    def createClassB2_5L() -> VolumetricFlask:
+    def createClassB2dot5L() -> VolumetricFlask:
         return VolumetricFlask(capacity=2500,
                                tolerance=3,
                                grade="B",

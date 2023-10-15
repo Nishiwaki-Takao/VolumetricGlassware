@@ -1,18 +1,17 @@
-from typing import Union
-
 import quantities as pq
 from ..Common.SingleMarked import SingleMarked
-from ..Common.ToDeliver import ToDeliver
+from ..Common.ToDeliverDrop import ToDeliver
 from ..Common.Enums import Color
 
 
-class VolumetricPipette(SingleMarked, ToDeliver):
+class VolumetricPipette(SingleMarked):
 
     def __init__(self, capacity: float, tolerance: float, grade: str, calibration: str, color: str,
                  number_of_ring: int):
         super().__init__(capacity, tolerance, grade, calibration)
         self.color = Color[color]
         self.NomRing = number_of_ring
+        self.ToDeliver = ToDeliver()
 
     def __repr__(self) -> str:
         s = super().__repr__()
@@ -31,7 +30,7 @@ class VolumetricPipette(SingleMarked, ToDeliver):
         return pref + self.color.name
 
     def __add__(self, other) -> pq.UncertainQuantity:
-        return self.unc_qnt().__add__(other)
+        return self._unc_qnt().__add__(other)
 
     def __iadd__(self, other) -> pq.UncertainQuantity:
         return self.unc_qnt().__iadd__(other)
@@ -45,8 +44,8 @@ class VolumetricPipette(SingleMarked, ToDeliver):
     def __isub__(self, other) -> pq.UncertainQuantity:
         return self.unc_qnt().__isub__(other)
 
-    def __rsub__(self, other) -> pq.UncertainQuantity:
-        return self.unc_qnt().__rsub__(other)
+    def __rsub__(self, other):
+        return self.ToDeliver.__rsub__(other)
 
     def __mul__(self, other) -> pq.UncertainQuantity:
         return self.unc_qnt().__mul__(other)
@@ -61,7 +60,7 @@ class VolumetricPipette(SingleMarked, ToDeliver):
         return self.unc_qnt().__truediv__(other)
 
     def __rtruediv__(self, other) -> None:
-        return ToDeliver.__rtruediv__(other)
+        return self.ToDeliver.__rtruediv__(other)
 
     def __mod__(self, other) -> pq.UncertainQuantity:
         return self.unc_qnt().__mod__(other)

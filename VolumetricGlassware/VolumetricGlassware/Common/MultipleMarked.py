@@ -1,41 +1,13 @@
 from abc import abstractmethod
-
+from math import copysign
 from VolumetricGlassware import VolumetricGlassware
-from VolumeConvertor import VolumeConvertor
+from VolumeConvertor import VolumeConvertor,read_volume_checker
+from typing import Tuple, List, Union
 import quantities as pq
+import warnings
 
 
 
-def data_check_convertor(func):
-    def wrapper(self,*args,data):
-        if isinstance(data, pq.UncertainQuantity) \
-                and data.magnitude <= self.capacity \
-                and data.units == pq.ml:
-            result=data
-            func(self,*args,result)
-        elif isinstance(data, tuple) and len(data) == 2:
-            result= pq.UncertainQuantity(data=self.volume_convertor(data[0],data[1]),
-                                        units=pq.ml,
-                                        uncertainty=self.uncertainty)
-            func(self,*args,result)
-        elif isinstance(data, float) and data <= self.capacity:
-            result = pq.UncertainQuantity(data=self.volume_convertor(data),
-                                        units=pq.ml,
-                                        uncertainty=self.uncertainty)
-            func(self,*args,result)
-        else:
-            raise ValueError("Invalid input")
-    return wrapper
-
-
-def read_volume_checker(func):
-    def wrapper(self,read_volume:float,read_mentally_division:int):
-        if read_volume <= self.capacity or read_volume < 0: raise ValueError(
-            "Your Read Value is invalid(Over NominalCapacity or Negative value.)")
-        if abs(read_mentally_division) <= 10 or read_mentally_division < 0: raise ValueError(
-            "Mentally Division is invalid(Over 10 or lower -10)")
-        return func(self,read_volume,read_mentally_division)
-    return wrapper
 
 
 class MultipleMarked(VolumetricGlassware):
@@ -47,32 +19,42 @@ class MultipleMarked(VolumetricGlassware):
                  new_grade: str,
                  new_calibration: str):
         super().__init__(capacity, tolerance, new_grade, new_calibration)
-        self.SubDivision = sub_division
-        self._value_list = [].append(pq.UncertainQuantity(data=0, units=pq.ml, uncertainty=self.uncertainty))
+        self.volume_convertor = VolumeConvertor(capacity,sub_division)
+        self.reset_glassware()
+        self._ZeroPoint = 0.0
+        self._EndPoint = self.capacity
+        self.reset_glassware()
+
     @property
-    def subdivision(self) ->float:
-        return self.SubDivision
+    def subdivision(self) -> float:
+        return self.volume_convertor.Sub_Division
 
     def __len__(self):
-        return len(self._value_list)
+        return 2
 
     def __getitem__(self, index):
-        return VolumeConvertor(key=index, parent_object=self)
+        if isinstance(index, int):
+            if index == 0:
+                return self._ZeroPoint
+            elif index == 1:
+                return self._EndPoint
+            else:
+                raise ValueError('Your index is out of range.')
 
-    @data_check_convertor
-    def __setstate__(self, index, value):
-            self._value_list[index] = value
-    def __delitem__(self, key):
-        del self._value_list[key]
+    def __setitem__(self, key: int, value: float):
+        if key == 0:
+            self._ZeroPoint = self.volume_convertor.convert_volume(value)
+        elif key == 1:
+            self._EndPoint = self.volume_convertor.convert_volume(value)
+        else:
+            raise ValueError('Your index is out of range.')
 
-    def __contains__(self, item):
-        if isinstance(item, pq.UncertainQuantity):
-
-    @read_volume_checker
-    def volume_convertor(self, read_volume: float, read_mentally_division=0) -> float:
-            return round((read_volume + self.subdivision / 10 * read_mentally_division) / (self.subdivision / 10),
-                0) * self.subdivision / 10
-
+    def reset_glassware(self, read_volume=0.0, *args: int):
+        self._ZeroPoint = self.volume_convertor.convert_volume(read_volume, *args)
+        self._EndPoint = self._ZeroPoint
+    @list_length_lower_checker("_value_list", 2, 'you need to set your read value to show this present value.')
+    def present_value(self) -> pq.UncertainQuantity:
+        return self.unc_qnt(self._EndPoint - self._ZeroPoint)
 
 
 

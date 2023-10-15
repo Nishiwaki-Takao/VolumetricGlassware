@@ -7,6 +7,15 @@ This project is going to be representation of glasswares in Python.
 そうならこのプロジェクトは多分役に立つでしょう。
 このプロジェクトはガラス器具をPython言語で写像したものです。
 
-# For now
-for now this project is building. I Just prepared imperfect json which modelised JIS R 3505.
-現在、当プロジェクトは構築中です。現状はJIS R 3505をモデル化した不完全なJSONがあるのみです。
+# Single Marked Glassware
+Volumetric pipette, Volumetric flask. they are SingleMarked now available. it is based on list of JIS R 3505.
+if you Use Subclass of Single Marked Glassware. The instance will return uncertain quantity of quantities.
+## Volumetric Pipette
+Volumetric Pipette class supports almost operators. but reverse division operator is disabled.Because Pipette is to pick solution up. Not for diffusion.
+
+## Volumetric flask
+Volumetric Flask class supports almost operators. but reverse multiple operator returns uncertain quantity which have double uncertain.thus JIS standard define so.
+
+# Multiple Marked Glassware
+Volumetric Cylinder, Measure pipette, Gellbert and Bubcock oil guage are here. on goiing now.
+
