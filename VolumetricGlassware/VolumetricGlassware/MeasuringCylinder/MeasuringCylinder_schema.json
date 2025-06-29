@@ -23,7 +23,7 @@
             "type": "number",
             "minimum": 0.025,
             "maximum": 10,
-            "anyOf": [  { "multipleOf": 0.1 }, { "multipleOf": 0.2 }, { "multipleOf": 0.25 }, { "multipleOf": 0.5 },  { "multipleOf": 1.0 }, { "multipleOf": 1.5 }, { "multipleOf": 2.5 }, { "multipleOf": 5.0 }, { "multipleOf": 10.0 } ]
+            "enum": [ 0.025, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10 ]
             },
           "Subdivision": {
             "description": "メスシリンダーの目盛",

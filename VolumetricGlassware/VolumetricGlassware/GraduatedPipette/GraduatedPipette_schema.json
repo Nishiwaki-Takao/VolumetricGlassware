@@ -23,7 +23,7 @@
             "type": "number",
             "minimum": 0.005,
             "maximum" : 0.4,
-            "anyof": [ { "multipleOf": 0.005 }, { "multipleOf": 0.01 }, { "multipleOf": 0.015 }, { "multipleOf": 0.02 }, { "multipleOf": 0.03 }, { "multipleOf": 0.05 }, { "multipleOf": 0.1 }, { "multipleOf": 0.2 } ]
+            "enum": [ 0.005, 0.01, 0.015, 0.02, 0.03, 0.05, 0.1, 0.2, 0.4 ]
           },
           "Subdivision": {
             "description": "メスピペットの目盛",
